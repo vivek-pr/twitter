@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+
+{%block tweet%}
+    <div class="container">
+<div class="row equal">
+
+      <div class="col-xs-6 col-sm-4">
+        <h1>{{request.session.user}}</h1>
+      </div>
+
+      <div class="col-xs-6 col-sm-4">
+            <form class="form-actions" method="post" action="{% url 'store' %}">
+    {% csrf_token %}
+    {{forms}}
+    <input type="submit" class="btn btn-primary btn-md" value="Tweet">
+    </form>
+      </div>
+
+      <div class="col-xs-6 col-sm-4">
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+     {% for tweet in tweets%}
+
+    <hr>
+        <div class="row">
+
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-preview">
+                    <a href="post.html">
+                        <h2 class="post-title">
+                            {{tweet.author.username}}
+                        </h2>
+                        <h3 class="post-subtitle">
+                            {{tweet.text}}
+                        </h3>
+                    </a>
+                    <p class="post-meta"><a href="#"></a> on {{tweet.created}}</p>
+                </div>
+                </div>
+                </div>
+                </div></hr>
+
+          {%endfor%}
+          </div>
+
+
+{%endblock%}

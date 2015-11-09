@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+
+{%block tweet%}
+<div class="container">
+
+
+      <div class="col-xs-6 col-sm-4">
+        content
+      </div>
+
+      <div class="col-xs-6 col-sm-4">
+            <form class="form-actions" method="post" action='{% url 'login' %}'>
+    {% csrf_token %}
+    {{forms}}
+    <input type="submit" class="btn btn-primary btn-block" value="PUBLISH">
+    </form>
+    {{message}}
+    </div>
+      </div>
+
+      <div class="col-xs-6 col-sm-4">
+      content
+      </div>
+
+
+
+
+
+
+
+{% endblock%}
